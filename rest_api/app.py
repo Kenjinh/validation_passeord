@@ -43,13 +43,9 @@ def verify():
                 noMatch.append('noRepeted')
 
         elif rule['rule'] == 'minDigit':
-            count = 0
-            for char in password:
-                if char.isdigit():
-                    count += 1
-            if count < rule['value']:
-                noMatch.append('minDigit')
-                verify = False
+            if not len(password)> rule['value']:
+                    noMatch.append('minDigit')
+                    verify = False
         elif rule['rule'] == 'minUppercase':
             count = 0
             for char in password:
