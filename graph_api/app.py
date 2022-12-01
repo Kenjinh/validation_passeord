@@ -99,7 +99,6 @@ schema = make_executable_schema(type_defs, query)
 def graphql():  # put application's code here
     data = request.get_json()
     success, result = graphql_sync(schema, data, context_value={"request": request})
-    print(result)
     status_code = 200 if success else 400
     return jsonify(result), status_code
 
